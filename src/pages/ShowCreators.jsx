@@ -13,21 +13,33 @@ const ShowCreators = () => {
   const fetchCreators = async () => {
     const { data } = await supabase.from("creators").select();
 
-    setCreators(data);
+    setCreators(data || []);
   };
 
   return (
-    <div>
-      <h1>Creatorverse</h1>
+    <div className="container">
+      <div className="header">
+        <div>
+          <h1 className="title">Creatorverse</h1>
 
-      <Link to="/new">
-        <button>Add Creator</button>
-      </Link>
+          <p className="subtitle">Discover amazing content creators</p>
+        </div>
+
+        <Link to="/new">
+          <button className="add-btn">Add Creator</button>
+        </Link>
+      </div>
 
       {creators.length === 0 ? (
-        <p>No Creators Yet</p>
+        <div className="empty-state">
+          <h2>No Creators Yet</h2>
+        </div>
       ) : (
-        creators.map((creator) => <Card key={creator.id} creator={creator} />)
+        <div className="creator-grid">
+          {creators.map((creator) => (
+            <Card key={creator.id} creator={creator} />
+          ))}
+        </div>
       )}
     </div>
   );

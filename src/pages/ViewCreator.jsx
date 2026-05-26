@@ -21,25 +21,27 @@ const ViewCreator = () => {
     setCreator(data);
   };
 
-  if (!creator) return <p>Loading...</p>;
+  if (!creator) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
-    <div>
-      <img src={creator.imageURL} width="400" />
+    <div className="view-page">
+      <img src={creator.imageURL} alt={creator.name} />
 
       <h1>{creator.name}</h1>
 
       <p>{creator.description}</p>
 
-      <a href={creator.url} target="_blank">
-        Visit Channel
-      </a>
+      <div className="view-buttons">
+        <a href={creator.url} target="_blank" className="visit-btn">
+          Visit Channel
+        </a>
 
-      <br />
-
-      <Link to={`/edit/${creator.id}`}>
-        <button>Edit</button>
-      </Link>
+        <Link to={`/edit/${creator.id}`} className="details-btn">
+          Edit Creator
+        </Link>
+      </div>
     </div>
   );
 };

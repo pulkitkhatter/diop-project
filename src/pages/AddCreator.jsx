@@ -30,31 +30,42 @@ const AddCreator = () => {
   };
 
   return (
-    <form onSubmit={addCreator}>
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        onChange={handleChange}
-      />
+    <div className="form-container">
+      <h1>Add Creator</h1>
 
-      <input type="text" name="url" placeholder="URL" onChange={handleChange} />
+      <form onSubmit={addCreator}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Creator Name"
+          onChange={handleChange}
+        />
 
-      <textarea
-        name="description"
-        placeholder="Description"
-        onChange={handleChange}
-      />
+        <input
+          type="text"
+          name="url"
+          placeholder="Channel URL"
+          onChange={handleChange}
+        />
 
-      <input
-        type="text"
-        name="imageURL"
-        placeholder="Image URL"
-        onChange={handleChange}
-      />
+        <textarea
+          name="description"
+          placeholder="Description"
+          onChange={handleChange}
+        />
 
-      <button type="submit">Add Creator</button>
-    </form>
+        <input
+          type="text"
+          name="imageURL"
+          placeholder="Image URL"
+          onChange={handleChange}
+        />
+
+        <button type="submit" className="submit-btn">
+          Add Creator
+        </button>
+      </form>
+    </div>
   );
 };
 

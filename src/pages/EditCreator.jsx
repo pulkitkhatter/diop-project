@@ -52,40 +52,46 @@ const EditCreator = () => {
   };
 
   return (
-    <form onSubmit={updateCreator}>
-      <input
-        type="text"
-        name="name"
-        value={creator.name}
-        onChange={handleChange}
-      />
+    <div className="form-container">
+      <h1>Edit Creator</h1>
 
-      <input
-        type="text"
-        name="url"
-        value={creator.url}
-        onChange={handleChange}
-      />
+      <form onSubmit={updateCreator}>
+        <input
+          type="text"
+          name="name"
+          value={creator.name}
+          onChange={handleChange}
+        />
 
-      <textarea
-        name="description"
-        value={creator.description}
-        onChange={handleChange}
-      />
+        <input
+          type="text"
+          name="url"
+          value={creator.url}
+          onChange={handleChange}
+        />
 
-      <input
-        type="text"
-        name="imageURL"
-        value={creator.imageURL}
-        onChange={handleChange}
-      />
+        <textarea
+          name="description"
+          value={creator.description}
+          onChange={handleChange}
+        />
 
-      <button type="submit">Update</button>
+        <input
+          type="text"
+          name="imageURL"
+          value={creator.imageURL}
+          onChange={handleChange}
+        />
 
-      <button type="button" onClick={deleteCreator}>
-        Delete
-      </button>
-    </form>
+        <button type="submit" className="submit-btn">
+          Update Creator
+        </button>
+
+        <button type="button" onClick={deleteCreator} className="delete-btn">
+          Delete Creator
+        </button>
+      </form>
+    </div>
   );
 };
 

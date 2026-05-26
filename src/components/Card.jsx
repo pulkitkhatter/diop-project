@@ -3,19 +3,23 @@ import { Link } from "react-router-dom";
 const Card = ({ creator }) => {
   return (
     <div className="card">
-      <img src={creator.imageURL} alt="" width="300" />
+      <img src={creator.imageURL} alt={creator.name} />
 
-      <h2>{creator.name}</h2>
+      <div className="card-content">
+        <h2>{creator.name}</h2>
 
-      <p>{creator.description}</p>
+        <p>{creator.description}</p>
 
-      <a href={creator.url} target="_blank">
-        Visit Channel
-      </a>
+        <div className="card-buttons">
+          <a href={creator.url} target="_blank" className="visit-btn">
+            Visit
+          </a>
 
-      <br />
-
-      <Link to={`/creator/${creator.id}`}>View More</Link>
+          <Link to={`/creator/${creator.id}`} className="details-btn">
+            Details
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
